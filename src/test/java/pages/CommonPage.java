@@ -5,19 +5,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-public class CommonPage extends BasePage{
+public class CommonPage extends BasePage {
     //locatori specifici paginii;
-    private By alertsSubMenu= By.xpath("//span[text()='Alerts']");
+    private By subMenuListLocator = By.xpath("//span[@class='text']");
+
     public CommonPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public void isPageLoaded() {
-        Assert.assertEquals(driver.getTitle(),"DEMOQA","Page is not loaded properly");
+        Assert.assertEquals(driver.getTitle(), "DEMOQA", "Page is not loaded properly");
     }
-    public void chooseSubMenu() {
-        //identificam submeniul dorit si facem click pe el;
-        driver.findElement(alertsSubMenu).click();
+
+    public void goToDesiredSubMenu(String subMenuValue) {
+        for (WebElement subMenuName : driver.findElements(subMenuListLocator)) {
+            if (subMenuName.getText().equals(subMenuValue)) {
+                subMenuName.click();
+            }
+        }
     }
 }
