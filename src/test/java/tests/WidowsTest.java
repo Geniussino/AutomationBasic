@@ -19,6 +19,7 @@ public class WidowsTest extends BaseTest {
         interactWithNewTab();
         interactWithNewWindow();
         interactWithNewWindowMessage();
+
     }
     // Metoda care deschide browserul
 //    public void openBrowser() {
