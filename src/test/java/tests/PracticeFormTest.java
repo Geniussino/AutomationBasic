@@ -135,10 +135,6 @@ public class PracticeFormTest extends BaseTests{
         expectedValues.put("Subjects", mathsSubjectText + ", " + physicsSubjectText);
         expectedValues.put("Hobbies", sportHobbysText + ", " + musicHobbysText + ", " + readingHobbysText);
 
-
-
-
-
         //declaram listele cu valorile actuale din tabel
         List<WebElement> submitTableKeys = driver.findElements(By.xpath("//tbody//td[1]"));
         List<WebElement> submitTableValues = driver.findElements(By.xpath("//tbody//td[2]"));
