@@ -9,6 +9,7 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
+
 public class AlertsPage extends BasePage{
     private By pageTitle= By.xpath("//h1[@class]");
     private By firstAlertButton= By.id("alertButton");
