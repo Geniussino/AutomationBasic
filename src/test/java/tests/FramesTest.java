@@ -20,6 +20,7 @@ public class FramesTest extends BaseTest {
         framesPage.interactWithFrameTwo();
     }
 
+    //test git
 //    public void openBrowser() {
 //        driver = new ChromeDriver(); // Navigam catre pagina website-ului
 //        driver.get("https://demoqa.com/");
