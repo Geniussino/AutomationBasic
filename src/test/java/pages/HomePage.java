@@ -9,7 +9,6 @@ import org.testng.Assert;
 public class HomePage extends BasePage{
 
     //locatori specifici paginii;
-
     private By pageTitle= By.xpath("//img[@alt='Selenium Online Training']");
     private By menuListLocator= By.xpath("//h5");
 

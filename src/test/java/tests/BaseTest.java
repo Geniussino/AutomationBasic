@@ -10,15 +10,16 @@ public class BaseTest {
     WebDriver driver;
 
     @BeforeMethod
+    //facem o metoda care deschide un browser;
     public void openBrowser() {
-        driver = new ChromeDriver(); // Navigam catre pagina website-ului
+        driver = new ChromeDriver();
+        // navigam catre pagine website-ului
         driver.get("https://demoqa.com/");
-        driver.manage().window().maximize(); // Facem fereastra maxima
+        //facem fereastra browser-ului maximize
+        driver.manage().window().maximize();
     }
-
     @AfterMethod
-    public void closeBrowser(){
+    public void closeBrowser() {
         driver.quit();
     }
-
 }

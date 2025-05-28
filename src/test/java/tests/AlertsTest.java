@@ -20,35 +20,44 @@ public class AlertsTest extends BaseTest {
         AlertsPage alertsPage= new AlertsPage(driver);
         alertsPage.isPageLoaded();
         alertsPage.interactWithFirstAlert();
+        alertsPage.interactWithTimerAlert();
+        alertsPage.interactWithConfirmAlert("Cancel");
+        alertsPage.interactWithPromptBox("Demetra");
     }
-
-//    // Metoda care deschide browserul
+//IMPLEMENTAREA BRUTA A TESTULUI
+    //facem o metoda care deschide un browser;
 //    public void openBrowser() {
-//        driver = new ChromeDriver(); // Navigam catre pagina website-ului
+//        driver = new ChromeDriver();
+//        // navigam catre pagine website-ului
 //        driver.get("https://demoqa.com/");
-//        driver.manage().window().maximize(); // Facem fereastra maxima
+//        //facem fereastra browser-ului maximize
+//        driver.manage().window().maximize();
 //    }
+    //facem o metoda care alege un meniu;
 
-//    // Identificam meniul dorit si facem click pe el
-//    public void choseMenu() {
+//    public void chooseMenu() {
+//        //identificam meniul dorit si facem click pe el;
 //        WebElement alertsWindowsAndFramesMenu = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-//        scrollToElement(alertsWindowsAndFramesMenu);
-//        alertsWindowsAndFramesMenu.click(); // Actionam butonul din meniul de mai sus
+//        //actionam butonul pe meniul de mai sus;
+//        // facem scroll pana in dreptul elementului pe care vrem sa actionam;
+//        scrollIntoElement(alertsWindowsAndFramesMenu);
+//        alertsWindowsAndFramesMenu.click();
 //    }
-//
-//    // Facem o metoda care sa faca scroll
-//    public void scrollToElement(WebElement element) {
+    //facem o metoda care sa faca scroll;
+
+//    public void scrollIntoElement(WebElement alertsMenu) {
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].scrollIntoView(true);", element);
+//        js.executeScript("arguments[0].scrollIntoView(true);", alertsMenu);
 //    }
 //
-//    // Indendificam submeniul dorit si facem click pe el
-//    public void choseSubMenu() {
+//    //facem o metoda care sa selecteze submeniul;
+//    public void chooseSubMenu() {
+//        //identificam submeniul dorit si facem click pe el;
 //        WebElement alertsSubMenu = driver.findElement(By.xpath("//span[text()='Alerts']"));
 //        alertsSubMenu.click();
 //    }
 //
-//    // Facem o metoda care sa interactioneze cu prima alerta
+//    //facem o metoda care sa interactioneze cu prima alerta;
 //    public void interactWithFirstAlert() {
 //        WebElement firstAlertButton = driver.findElement(By.id("alertButton"));
 //        firstAlertButton.click();
@@ -56,41 +65,41 @@ public class AlertsTest extends BaseTest {
 //        FirstAlert.accept();
 //    }
 //
-//    // Facem o metoda care sa interactioneze cu a doua alerta
+//    //facem o metoda care sa interactioneze cu prima alerta;
 //    public void interactWithTimerAlert() {
 //        WebElement timerAlertButton = driver.findElement(By.id("timerAlertButton"));
 //        timerAlertButton.click();
-//        // Inainte sa schimbam focusul pe alerta, trebuie sa punem un wait explicit
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
+//        //Inainte sa schimbam focusul pe alerta, trebuie sa punem un wait explicit;
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 //        wait.until(ExpectedConditions.alertIsPresent());
 //        Alert timerAlert = driver.switchTo().alert();
 //        timerAlert.accept();
 //    }
 //
-//    // Facem o metoda care sa interactioneze cu a treia alerta
 //    public void interactWithConfirmAlert(String alertValue) {
 //        WebElement confirmAlertButton = driver.findElement(By.id("confirmButton"));
 //        confirmAlertButton.click();
 //        Alert confirmAlert = driver.switchTo().alert();
-//        if (alertValue.equals("Ok")) {
+//        if (alertValue.equals("ok")) {
 //            confirmAlert.accept();
 //            WebElement alertResultText = driver.findElement(By.id("confirmResult"));
-//            assertTrue(alertResultText.getText().contains(alertValue), "You didn't select Ok. You selected: " + alertResultText.getText());
+//            Assert.assertTrue(alertResultText.getText().contains(alertValue), "You didn't select Ok. You selected: " + alertResultText.getText());
 //        }
 //        if (alertValue.equals("Cancel")) {
 //            confirmAlert.dismiss();
 //            WebElement alertResultText = driver.findElement(By.id("confirmResult"));
-//            assertTrue(alertResultText.getText().contains(alertValue), "You didn't select Cancel. You selected: " + alertResultText.getText());
+//            Assert.assertTrue(alertResultText.getText().contains(alertValue), "You didn't select Cancel. You selected: " + alertResultText.getText());
 //        }
 //    }
-//
-//    public void interactWithPromptButtonAlert(String alertValue) {
-//        WebElement promptButton = driver.findElement(By.id("promtButton"));
-//        promptButton.click();
-//        Alert promptAlert = driver.switchTo().alert();
-//        promptAlert.sendKeys(alertValue);
-//        promptAlert.accept();
-//        WebElement resultText = driver.findElement(By.id("promptResult"));
-//        assertTrue(resultText.getText().contains(alertValue), "The result doesn't contain the expected name. " + resultText.getText());
-//    }
+//        public void interactWithPromptBox(String alertValue){
+//            WebElement confirmPromptButton = driver.findElement(By.id("promtButton"));
+//            confirmPromptButton.click();
+//            Alert promptAlert = driver.switchTo().alert();
+//            //introduce numele meu in casuta de prompt;
+//            promptAlert.sendKeys(alertValue);
+//            //apoi apasa pe butonul ok;
+//            promptAlert.accept();
+//            WebElement promptResult= driver.findElement(By.id("promptResult"));
+//            Assert.assertTrue(promptResult.getText().contains(alertValue),"You didn't enter the right name. In that box " + promptResult.getText());
+//        }
 }
