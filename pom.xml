@@ -25,11 +25,7 @@
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
-        HEAD
         <version>4.33.0</version>
-=======
-        <version>4.33.0</version>
- pageObjectModel
     </dependency>
     <dependency>
         <groupId>org.jetbrains</groupId>
