@@ -37,7 +37,7 @@ public class PracticeFormTest extends BaseTest {
 //        WebElement FormMenu = driver.findElement(By.xpath("//h5[text()='Forms']"));
 //        //actionam butonul pe meniul de mai sus;
 //        // facem scroll pana in dreptul elementului pe care vrem sa actionam;
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
 //        js.executeScript("arguments[0].scrollIntoView(true);", FormMenu);
 //        FormMenu.click();
 //        //identificam submeniul dorit si facem click pe el;

@@ -21,10 +21,10 @@ public class DropTest extends BaseTest {
         HomePage homePage= new HomePage(driver);
         homePage.isPageLoaded();
         homePage.goToDesiredMenu("Interactions");
-        CommonPage commonPage=new CommonPage(driver);
+        CommonPage commonPage = new CommonPage(driver);
         commonPage.isPageLoaded();
         commonPage.goToDesiredSubMenu("Droppable");
-        DroppablePage droppablePage=new DroppablePage(driver);
+        DroppablePage droppablePage = new DroppablePage(driver);
         droppablePage.isPageLoaded();
         droppablePage.pickAndDropElement();
     }

@@ -142,8 +142,8 @@ public class PracticeFormPage extends BasePage {
     }
 
     public void uploadPicture() {
-        String pictureFileText = "TestImage.jpg";
-        String pictureFilePaths = "src/test/resources/picture/" + pictureFileText;
+        String pictureFileText = "TestImage.png";
+        String pictureFilePaths = "src/test/resources/pictures/" + pictureFileText;
         File file = new File(pictureFilePaths);
         driver.findElement(uploadFileElement).sendKeys(file.getAbsolutePath());
     }

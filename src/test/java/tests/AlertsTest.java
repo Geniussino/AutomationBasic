@@ -22,7 +22,7 @@ public class AlertsTest extends BaseTest {
         alertsPage.interactWithFirstAlert();
         alertsPage.interactWithTimerAlert();
         alertsPage.interactWithConfirmAlert("Cancel");
-        alertsPage.interactWithPromptBox("Demetra");
+        alertsPage.interactWithPromptBox("Eugen");
     }
 //IMPLEMENTAREA BRUTA A TESTULUI
     //facem o metoda care deschide un browser;
