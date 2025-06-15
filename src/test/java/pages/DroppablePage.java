@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 public class DroppablePage extends BasePage {
+
     //locatori specifici;
     private By pageTitle = By.xpath("//h1[@class]");
     private By draggableElement = By.id("draggable");
@@ -16,16 +17,22 @@ public class DroppablePage extends BasePage {
     }
 
     @Override
+
     public void isPageLoaded() {
-        Assert.assertEquals(driver.findElement(pageTitle).getText(), "Droppable", "Page is not loaded properly");
+        Assert.assertEquals(elementMethods.getTextFromElement(pageTitle), "Droppable",
+                "Page is not loaded properly");
     }
 
     public void pickAndDropElement() {
-        String initialTargetText = driver.findElement(droppableElement).getText(); //am salvat textul de pe element intr-un string;
-        Actions action = new Actions(driver);
-        //se ia elementul care se trage si se lasa in Element;
-        action.dragAndDrop(driver.findElement(draggableElement), driver.findElement(droppableElement)).release().perform();
-        Assert.assertNotEquals(driver.findElement(droppableElement).getText(), initialTargetText, "Initial text is the same with actual text after element dropped");
-        System.out.println("Initial text is: " + initialTargetText + " Text after successful drop: " + driver.findElement(droppableElement).getText());
+        String initialTargetText = elementMethods.getTextFromElement(droppableElement);
+//        String initialTargetText = driver.findElement(droppableElement).getText(); //am salvat textul de pe element intr-un string;
+//        Actions action = new Actions(driver);
+//        //se ia elementul care se trage si se lasa in Element;
+//        action.dragAndDrop(driver.findElement(draggableElement), driver.findElement(droppableElement)).release().perform();
+        elementMethods.pickAndDropElement(draggableElement, droppableElement);
+        Assert.assertNotEquals(elementMethods.getTextFromElement(droppableElement), initialTargetText,
+                "Initial text is the same with actual text after element dropped");
+        System.out.println("Initial text is: " + initialTargetText + " Text after successful drop: " +
+                elementMethods.getTextFromElement(droppableElement));
     }
 }

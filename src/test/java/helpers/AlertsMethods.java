@@ -8,37 +8,36 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class AlertsMethods {
-
     WebDriver driver;
 
-    public AlertsMethods(WebDriver driver) {
+    public AlertsMethods(WebDriver driver){
         this.driver = driver;
     }
 
-    public void waitForAlert() {
+    public void waitForAlert(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.alertIsPresent());
     }
 
-    public Alert switchToAlert() {
+    public Alert switchToAlert(){
         return driver.switchTo().alert();
     }
 
-    public void alertOk() {
+    public void alertOk(){
         waitForAlert();
         Alert alertOk = switchToAlert();
         alertOk.accept();
     }
 
-    public void timerAlert() {
+    public void timerAlert(){
         waitForAlert();
         Alert timerAlert = switchToAlert();
         timerAlert.accept();
     }
 
-    public void confirmAlert(String alertValue) {
+    public void confirmAlert(String alertValue){
         Alert confirmAlert = switchToAlert();
-        switch (alertValue) {
+        switch (alertValue){
             case "OK":
                 confirmAlert.accept();
                 break;
@@ -48,7 +47,7 @@ public class AlertsMethods {
         }
     }
 
-    public void promptAlert(String textValue) {
+    public void promptAlert(String textValue){
         waitForAlert();
         Alert promptAlert = switchToAlert();
         promptAlert.sendKeys(textValue);
