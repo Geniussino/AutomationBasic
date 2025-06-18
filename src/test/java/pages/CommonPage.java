@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class CommonPage extends BasePage {
-
     //locatori specifici paginii;
     private By subMenuListLocator = By.xpath("//span[@class='text']");
 
@@ -15,19 +14,12 @@ public class CommonPage extends BasePage {
     }
 
     @Override
-
     public void isPageLoaded() {
         Assert.assertEquals(driver.getTitle(), "DEMOQA", "Page is not loaded properly");
     }
 
     public void goToDesiredSubMenu(String subMenuValue) {
-        elementMethods.scrollPageDown("300");
+        elementMethods.scrollPageDown("500");
         elementMethods.chooseElementFromListByText(subMenuListLocator, subMenuValue);
-//        nu mai avem nevoie de metoda de ma jos daca folosim elementMethods
-//        for (WebElement subMenuName : driver.findElements(subMenuListLocator)) {
-//            if (subMenuName.getText().equals(subMenuValue)) {
-//                subMenuName.click();
-//            }
-//        }
     }
 }

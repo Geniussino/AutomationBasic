@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WindowsMethods {
+
     WebDriver driver;
 
     public WindowsMethods(WebDriver driver) {
@@ -30,8 +31,5 @@ public class WindowsMethods {
         } else {
             System.out.println("New window cannot be opened");
         }
-        driver.switchTo().window(windowsList.get(1));
-        driver.close();
-        driver.switchTo().window(windowsList.get(0));
     }
 }

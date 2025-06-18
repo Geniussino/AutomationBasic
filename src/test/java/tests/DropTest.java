@@ -20,7 +20,6 @@ import static constatnts.SubMenuConstants.DROPPABLE_SUBMENU;
 public class DropTest extends BaseTest {
 
     @Test
-
     public void droppableTest() {
         HomePage homePage= new HomePage(driver);
         homePage.isPageLoaded();
@@ -33,7 +32,7 @@ public class DropTest extends BaseTest {
         droppablePage.pickAndDropElement();
     }
 
-//    //facem o metoda care deschide un browser;
+    //facem o metoda care deschide un browser;
 //    public void openBrowser() {
 //        driver = new ChromeDriver();
 //        // navigam catre pagine website-ului
@@ -42,7 +41,7 @@ public class DropTest extends BaseTest {
 //        driver.manage().window().maximize();
 //    }
 
-//    //facem o metoda care alege un meniu;
+    //facem o metoda care alege un meniu;
 //    public void chooseMenu() {
 //        //identificam meniul dorit si facem click pe el;
 //        WebElement alertsWindowsAndFramesMenu = driver.findElement(By.xpath("//h5[text()='Interactions']"));
@@ -51,8 +50,8 @@ public class DropTest extends BaseTest {
 //        scrollIntoElement(alertsWindowsAndFramesMenu);
 //        alertsWindowsAndFramesMenu.click();
 //    }
-//
 //    //facem o metoda care sa faca scroll;
+//
 //    public void scrollIntoElement(WebElement alertsMenu) {
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
 //        js.executeScript("arguments[0].scrollIntoView(true);", alertsMenu);
@@ -64,11 +63,9 @@ public class DropTest extends BaseTest {
 //        WebElement alertsSubMenu = driver.findElement(By.xpath("//span[text()='Droppable']"));
 //        alertsSubMenu.click();
 //    }
-//
 //    public void closeBrowser() {
 //        driver.quit();
 //    }
-//
 //    public void pickAndDropElement(){
 //        WebElement draggableElement = driver.findElement(By.id("draggable"));
 //        WebElement droppableElement = driver.findElement(By.xpath("//div[@id='simpleDropContainer']//div[@id='droppable']"));

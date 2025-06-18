@@ -24,7 +24,6 @@ public class AlertsPage extends BasePage{
     }
 
     @Override
-
     public void isPageLoaded() {
         Assert.assertEquals(elementMethods.getTextFromElement(pageTitle),"Alerts","Page is not loaded properly");
     }
@@ -32,48 +31,25 @@ public class AlertsPage extends BasePage{
     public void interactWithFirstAlert() {
         elementMethods.clickElement(firstAlertButton);
         alertsMethods.alertOk();
-//        Alert FirstAlert = driver.switchTo().alert();
-//        FirstAlert.accept();
     }
 
     //facem o metoda care sa interactioneze cu prima alerta;
     public void interactWithTimerAlert() {
         elementMethods.clickElement(timerAlertButton);
+        //Inainte sa schimbam focusul pe alerta, trebuie sa punem un wait explicit;
         alertsMethods.timerAlert();
-//        //Inainte sa schimbam focusul pe alerta, trebuie sa punem un wait explicit;
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-//        wait.until(ExpectedConditions.alertIsPresent());
-//        Alert timerAlert = driver.switchTo().alert();
-//        timerAlert.accept();
     }
 
     public void interactWithConfirmAlert(String alertValue) {
         elementMethods.clickElement(confirmAlertButton);
         alertsMethods.confirmAlert(alertValue);
-        Alert confirmAlert = driver.switchTo().alert();
-        Assert.assertTrue(elementMethods.getTextFromElement(alertResultText).contains(alertValue), "You didn't " +
-                "select Ok. You selected: " + elementMethods.getTextFromElement(alertResultText));
-//        if (alertValue.equals("OK")) {
-//            confirmAlert.accept();
-//            Assert.assertTrue(elementMethods.getElement(alertResultText).getText().contains(alertValue), "You didn't " +
-//                    "select Ok. You selected: " + elementMethods.getElement(alertResultText).getText());
-//        }
-//        if (alertValue.equals("Cancel")) {
-//            confirmAlert.dismiss();
-//            Assert.assertTrue(elementMethods.getElement(alertResultText).getText().contains(alertValue), "You didn't "
-//                    + "select Cancel. You selected: " + elementMethods.getElement(alertResultText).getText());
-//        }
+        Assert.assertTrue(elementMethods.getTextFromElement(alertResultText).contains(alertValue), "You didn't select Ok. You selected: "
+                + elementMethods.getTextFromElement(alertResultText));
     }
-
     public void interactWithPromptBox(String alertValue){
-        elementMethods.clickElement(confirmAlertButton);
+        elementMethods.clickElement(confirmPromptButton);
         alertsMethods.promptAlert(alertValue);
-//        Alert promptAlert = driver.switchTo().alert();
-//        //introduce numele meu in casuta de prompt;
-//        promptAlert.sendKeys(alertValue);
-//        //apoi apasa pe butonul ok;
-//        promptAlert.accept();
-        Assert.assertTrue(elementMethods.getTextFromElement(promptResult).contains(alertValue),"You didn't enter the " +
-                "right name. In that box " + elementMethods.getTextFromElement(promptResult));
+        Assert.assertTrue(elementMethods.getTextFromElement(promptResult).contains(alertValue),"You didn't enter the right name. In that box "
+                + elementMethods.getTextFromElement(promptResult));
     }
 }

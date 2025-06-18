@@ -13,16 +13,13 @@ public abstract class BasePage {
     public FrameMethods frameMethods;
     public WindowsMethods windowsMethods;
 
-
     public BasePage(WebDriver driver) {
         this.driver = driver;
         elementMethods = new ElementMethods(driver);
         alertsMethods = new AlertsMethods(driver);
         frameMethods = new FrameMethods(driver);
         windowsMethods = new WindowsMethods(driver);
-
     }
-
 
     public abstract void isPageLoaded();
 }

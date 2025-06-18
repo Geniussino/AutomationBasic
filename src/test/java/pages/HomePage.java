@@ -16,13 +16,7 @@ public class HomePage extends BasePage{
         super(driver);
     }
 
-//    public void scrollPageDown() {
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("window.scrollBy(0,400)");
-//    }
-
     @Override
-
     public void isPageLoaded() {
         Assert.assertEquals(elementMethods.getElement(pageTitle).getDomAttribute("alt"),
                 "Selenium Online Training","Page is not loaded properly");
@@ -30,12 +24,6 @@ public class HomePage extends BasePage{
 
     public void goToDesiredMenu(String menuValue) {
         elementMethods.scrollPageDown("400");
-        elementMethods.chooseElementFromListByText(menuListLocator, menuValue);
-//        for (WebElement menuName : driver.findElements(menuListLocator)) {
-//            if (menuName.getText().equals(menuValue)) {
-//                menuName.click();
-//                break;
-//            }
-//        }
+        elementMethods.chooseElementFromListByText(menuListLocator,menuValue);
     }
 }
