@@ -1,16 +1,16 @@
 package helpers;
 
-import com.thoughtworks.qdox.model.expression.Add;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.io.File;
-import java.security.Key;
 import java.time.Duration;
 import java.util.List;
+import java.util.function.Function;
 
 public class ElementMethods {
 
@@ -99,10 +99,11 @@ public class ElementMethods {
 
     public void pickAndDropElement(By actual, By next){
         waitForElement(actual);
-        action.dragAndDrop(getElement(actual),getElement(next)).release().perform();
+        action.clickAndHold(getElement(actual)).moveToElement(getElement(next)).release().build().perform();
     }
 
     public String getTextFromElement(By locator){
+        waitForElement(locator);
         return getElement(locator).getText();
     }
 
@@ -117,4 +118,14 @@ public class ElementMethods {
         File file = new File(pictureFilePaths);
         getElement(locator).sendKeys(file.getAbsolutePath());
     }
+
+    public void setWait(Long miliSeconds){
+        try {
+            wait(miliSeconds);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }
